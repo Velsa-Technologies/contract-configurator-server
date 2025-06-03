@@ -1,12 +1,13 @@
 .toolbar {
   align-items: center; /* Vertically centers the items */
   height: 50%;        /* Ensure it takes full parent height */
-  padding: 0 16px;     /* Optional horizontal padding */
-  margin: 40px auto;
-  padding: 40px;
+  /*padding: 0 16px;     /* Optional horizontal padding */
+  /*margin: 40px auto;
+  padding: 40px;*/
   background-color: #232222;
   border-radius: 8px;
-  border-spacing:100px;
+  max-width: 20%;
+  margin: 1%;
   /*display: inline-grid;
   grid-template-columns: 200px 250px;*/
 }
@@ -41,10 +42,8 @@
 }
 
 .contractPlane {
-    max-width: 700px;
-    max-height: 70vh;     
-    margin: 40px auto;
-    padding: 30px;
+    width: 40%;
+    max-height: 80vh;   
     background-color: #f9f9f9;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
@@ -52,6 +51,11 @@
     border-radius: 8px;
     line-height: 1.6;
     text-align: start;
+    position: sticky;
+    top:100px;
+    bottom: 200px;
+    margin: 1%;
+    
 }
 
 li {
@@ -100,7 +104,7 @@ ul, ol {
 body {
   background-color: #282c34;
   color: white;
-  padding: 40px;
+  padding: 10px;
   font-family: Arial;
   text-align: center;
 }
@@ -113,9 +117,10 @@ body {
     padding-bottom: 0.3em;
   }
 
-.plane {
-  display: flex;
-}
+  .plane {
+    display: flex;
+    justify-content: center;
+  }
   
   .contractPlane h2 {
     font-size: 0.6em;
