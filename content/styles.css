@@ -54,6 +54,7 @@
     position: sticky;
     top:100px;
     bottom: 200px;
+    padding: 2%;
     margin: 1%;
     
 }
@@ -66,8 +67,10 @@ ul, ol {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 0;       /* Remove default left margin */
-    padding-left: 1rem;   /* Adjust to control indentation */
+    padding-left: 0m;   /* Adjust to control indentation */
+    padding-inline-start: 0px;
 }
+
 
 .toolbar ul{
   margin-left: 0;       /* Remove default left margin */
@@ -77,6 +80,7 @@ ul, ol {
 .radio-choice{
   padding-left: 20px;
 }
+
 
 .radio { 
   /*outline: 5px solid red;
