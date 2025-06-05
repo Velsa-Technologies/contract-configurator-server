@@ -1,13 +1,13 @@
 .toolbar {
   height: 50%;
-  background-color: rgb(23, 22, 22);/* #1b1a1a;*/
+  background-color: transparent;/* #1b1a1a;*/
   border-radius: 8px;
   max-width: 35%;
   margin-left: 1%;
   margin-top: 90px;
   display: flex;
   flex-direction: column;
-  gap: 0.4em;
+  gap: 1em;
   padding: 0.4em;
 }
 
