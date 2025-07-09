@@ -50,7 +50,7 @@
   line-height: 1.6;
 }
 
-/* Step wrapper */
+/* Step wrapper
 .vf-step-wrapper {
   background: white;
   border-radius: 8px;
@@ -59,6 +59,21 @@
   min-height: 300px;
   position: relative;
   overflow: hidden;
+} */
+/* Step wrapper - make it invisible as a container */
+.vf-step-wrapper {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  min-height: auto;
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--dark-slate-grey);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 2rem;
 }
 
 /* Step content */
@@ -70,10 +85,11 @@
 
 .vf-step-content h2 {
   margin: 0 0 1.5rem 0;
-  color: var(--dark-slate-grey);
+  color: var(--black);
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 155%;
+  letter-spacing: 0;
 }
 
 /* Options container */
@@ -101,6 +117,7 @@
   text-align: left;
   box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.08);
   position: relative;
+  display: block;
 }
 
 .vf-option-button:hover {
@@ -208,6 +225,7 @@
 /* Back button */
 .vf-back-button {
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 12px 24px;
   border: 1px solid #e1e4eb;
   background: white;
@@ -216,6 +234,7 @@
   font-size: 16px;
   color: var(--dark-slate-grey);
   transition: all 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .vf-back-button:hover {
