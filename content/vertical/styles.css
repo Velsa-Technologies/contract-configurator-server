@@ -395,3 +395,12 @@
 .vf-step-content[data-step="submit"] {
   background: rgba(255, 0, 0, 0.1) !important;  /* Light red background */
 }
+
+/* Make the React mount fill its parent and center it */
+#root {
+  display: block;        /* ensure block formatting */
+  width: 100%;           /* span full available width */
+  max-width: 800px;      /* cap it at whatever container width you’d like */
+  margin: 0 auto;        /* center horizontally */
+  padding: 20px;         /* optional breathing room */
+}
