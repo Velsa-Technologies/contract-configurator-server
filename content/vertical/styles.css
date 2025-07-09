@@ -11,63 +11,64 @@
   --gainsboro: #e1e4eb;
 }
 
-/* Reset and base styles */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
+/* Scoped reset for your app only */
+.vf-funnel-container {
+  /* Font and color settings */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #f2f3f6;
   color: var(--dark-slate-grey);
   font-size: 16px;
   line-height: 1.5;
-}
-
-/* Container styles */
-.funnel-container {
+  
+  /* Existing styles */
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.funnel-header {
+/* Box-sizing for all elements inside your app */
+.vf-funnel-container *,
+.vf-funnel-container *::before,
+.vf-funnel-container *::after {
+  box-sizing: border-box;
+}
+
+.vf-funnel-header {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.funnel-header h1 {
+.vf-funnel-header h1 {
   margin: 0 0 10px 0;
   color: #333;
   font-size: 3rem;
   font-weight: 600;
 }
 
-.funnel-header p {
+.vf-funnel-header p {
   color: var(--slate-grey);
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
 /* Step wrapper */
-.step-wrapper {
-  background: #f8f8f8;
-  border-radius: 12px;
+.vf-step-wrapper {
+  background: white;
+  border-radius: 8px;
   padding: 40px;
-  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   min-height: 300px;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Step content */
-.step-content {
+.vf-step-content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.step-content h2 {
+.vf-step-content h2 {
   margin: 0 0 1.5rem 0;
   color: var(--dark-slate-grey);
   font-size: 1.125rem;
@@ -75,16 +76,16 @@ body {
   line-height: 155%;
 }
 
-/* Options container - matching Webflow's item-list */
-.options-container {
+/* Options container */
+.vf-options-container {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding-top: 0.5rem;
 }
 
-/* Option button - matching Webflow's radio-selection */
-.option-button {
+/* Option button */
+.vf-option-button {
   background-color: var(--white);
   border: none;
   border-radius: 8px;
@@ -102,24 +103,24 @@ body {
   position: relative;
 }
 
-.option-button:hover {
+.vf-option-button:hover {
   background-color: var(--royal-blue);
   color: var(--white);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px -3px rgba(0, 0, 0, 0.12);
 }
 
-.option-button.selected {
+.vf-option-button.vf-selected {
   background-color: var(--royal-blue);
   color: var(--white);
 }
 
-.option-button:last-child {
+.vf-option-button:last-child {
   margin-bottom: 0;
 }
 
 /* Checkbox option for language selection */
-.checkbox-option {
+.vf-checkbox-option {
   background-color: var(--white);
   border-radius: 8px;
   width: 100%;
@@ -134,32 +135,32 @@ body {
   box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.08);
 }
 
-.checkbox-option:hover {
+.vf-checkbox-option:hover {
   background-color: var(--royal-blue);
   color: var(--white);
 }
 
-.checkbox-option.selected {
+.vf-checkbox-option.vf-selected {
   background-color: var(--royal-blue);
   color: var(--white);
 }
 
-.checkbox-option:last-child {
+.vf-checkbox-option:last-child {
   margin-bottom: 0;
 }
 
-.custom-checkbox {
+.vf-custom-checkbox {
   margin-right: 12px;
   cursor: pointer;
 }
 
-.checkbox-label {
+.vf-checkbox-label {
   font-weight: 400;
   cursor: pointer;
 }
 
 /* Continue button for language step */
-.continue-button {
+.vf-continue-button {
   background-image: linear-gradient(135deg, #69f, #f36);
   color: var(--white);
   border: none;
@@ -175,17 +176,17 @@ body {
   max-width: 32rem;
 }
 
-.continue-button:hover:not(:disabled) {
+.vf-continue-button:hover:not(:disabled) {
   transform: scale(1.02);
 }
 
-.continue-button:disabled {
+.vf-continue-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
 /* Submit button */
-.submit-button {
+.vf-submit-button {
   background-image: linear-gradient(135deg, #69f, #f36);
   color: var(--white);
   border: none;
@@ -200,12 +201,12 @@ body {
   margin-top: 2rem;
 }
 
-.submit-button:hover {
+.vf-submit-button:hover {
   transform: scale(1.02);
 }
 
 /* Back button */
-.back-button {
+.vf-back-button {
   margin-top: 20px;
   padding: 12px 24px;
   border: 1px solid #e1e4eb;
@@ -217,99 +218,90 @@ body {
   transition: all 0.2s;
 }
 
-.back-button:hover {
+.vf-back-button:hover {
   background: var(--white-smoke);
   transform: translateX(-2px);
 }
 
 /* Summary section */
-.summary {
+.vf-summary {
   background: var(--white-smoke);
   border-radius: 8px;
   padding: 1.5rem;
   margin: 1.5rem 0;
 }
 
-.summary p {
+.vf-summary p {
   margin: 0.5rem 0;
   color: var(--dark-slate-grey);
   font-size: 16px;
   line-height: 1.6;
 }
 
-.summary p:first-child {
+.vf-summary p:first-child {
   margin-top: 0;
 }
 
-.summary p:last-child {
+.vf-summary p:last-child {
   margin-bottom: 0;
 }
 
 /* Auto-selecting message */
-.step-content p[style*="italic"] {
+.vf-step-content p[style*="italic"] {
   color: var(--slate-grey);
   font-style: italic;
   margin: 0.5rem 0;
 }
 
-/* Responsive design */
-@media screen and (max-width: 991px) {
-  .funnel-container {
-    padding: 20px;
-  }
-  
-  .step-wrapper {
-    padding: 30px;
-  }
+/* Animation container */
+.vf-step-animation-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  height: 100%;
 }
 
-@media screen and (max-width: 767px) {
-  .funnel-header h1 {
-    font-size: 2rem;
-  }
-  
-  .step-wrapper {
-    padding: 20px;
-  }
+/* Base animation state - This is separate! */
+.vf-step-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
-@media screen and (max-width: 479px) {
-  .funnel-container {
-    padding: 15px;
-  }
-  
-  .funnel-header h1 {
-    font-size: 1.75rem;
-    margin-bottom: 20px;
-  }
-  
-  .funnel-header p {
-    font-size: 16px;
-  }
-  
-  .step-wrapper {
-    padding: 20px;
-    min-height: auto;
-  }
-  
-  .step-content h2 {
-    font-size: 0.97rem;
-  }
-  
-  .option-button,
-  .checkbox-option,
-  .continue-button {
-    min-width: auto;
-    width: 100%;
-  }
-  
-  .options-container {
-    width: 100%;
-  }
+/* Animation states */
+.vf-step-content.vf-enter-from-right {
+  transform: translateX(100%);
+  opacity: 1;
+}
+
+.vf-step-content.vf-enter-from-left {
+  transform: translateX(-100%);
+  opacity: 1;
+}
+
+.vf-step-content.vf-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.vf-step-content.vf-exit-to-left {
+  transform: translateX(-100%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.vf-step-content.vf-exit-to-right {
+  transform: translateX(100%);
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 /* Loading state */
-.loading-container {
+.vf-loading-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -318,71 +310,69 @@ body {
 }
 
 /* Error state */
-.error-container {
+.vf-error-container {
   text-align: center;
   padding: 40px 20px;
   color: #e53e3e;
 }
-/* Update step-wrapper to establish positioning context */
-.step-wrapper {
-  background: white;
-  border-radius: 8px;
-  padding: 40px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  min-height: 300px;
-  position: relative; /* Add this - creates positioning context */
-  overflow: hidden;   /* Add this - prevents content from showing outside */
+
+/* Responsive design */
+@media screen and (max-width: 991px) {
+  .vf-funnel-container {
+    padding: 20px;
+  }
+  
+  .vf-step-wrapper {
+    padding: 30px;
+  }
 }
 
-/* Remove these from step-animation-container if they exist */
-.step-animation-container {
-  position: relative;
-  overflow: hidden;
-  min-height: 300px;
-  height: 100%;  /* Add this to fill parent */
+@media screen and (max-width: 767px) {
+  .vf-funnel-header h1 {
+    font-size: 2rem;
+  }
+  
+  .vf-step-wrapper {
+    padding: 20px;
+  }
 }
 
-/* Base animation state */
-.step-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform; /* Optimize for animations */
-}
-
-/* Entering states - ensure these are applied immediately */
-.step-content.enter-from-right {
-  transform: translateX(100%);
-  opacity: 1; /* Keep full opacity during enter */
-}
-
-.step-content.enter-from-left {
-  transform: translateX(-100%);
-  opacity: 1;
-}
-
-.step-content.enter-active {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-/* Exiting states */
-.step-content.exit-to-left {
-  transform: translateX(-100%);
-  opacity: 0.3;
-  pointer-events: none; /* Prevent interaction during exit */
-}
-
-.step-content.exit-to-right {
-  transform: translateX(100%);
-  opacity: 0.3;
-  pointer-events: none;
+@media screen and (max-width: 479px) {
+  .vf-funnel-container {
+    padding: 15px;
+  }
+  
+  .vf-funnel-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+  }
+  
+  .vf-funnel-header p {
+    font-size: 16px;
+  }
+  
+  .vf-step-wrapper {
+    padding: 20px;
+    min-height: auto;
+  }
+  
+  .vf-step-content h2 {
+    font-size: 0.97rem;
+  }
+  
+  .vf-option-button,
+  .vf-checkbox-option,
+  .vf-continue-button {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .vf-options-container {
+    width: 100%;
+  }
 }
 
 /* Debug: Force animation on submit */
-.step-content[data-step="submit"] {
+.vf-step-content[data-step="submit"] {
   background: rgba(255, 0, 0, 0.1) !important;  /* Light red background */
 }
