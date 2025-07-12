@@ -291,8 +291,10 @@
 .vf-step-animation-container {
   position: relative;
   overflow: hidden;
+  overflow-x: visible; /* Allow horizontal overflow */
+  clip-path: inset(0 0 0 -50px); /* Only clip the right side, allow 50px overflow on left */
   min-height: 300px;
-  height: 100%;
+  height: auto;
 }
 
 /* Base animation state - This is separate! */
