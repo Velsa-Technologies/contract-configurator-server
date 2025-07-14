@@ -293,7 +293,7 @@
   overflow: hidden;
   overflow-x: visible; /* Allow horizontal overflow */
   clip-path: inset(0 0 0 -50px); /* Only clip the right side, allow 50px overflow on left */
-  /* min-height: 500px; */
+  min-height: 300px;
   /* height: auto; */
   /* transition: min-height 0.3s ease-out; */
 }
@@ -372,6 +372,10 @@
   .vf-step-wrapper {
     padding: 0;
   }
+
+  .vf-step-animation-container {
+    min-height: 250px;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -406,6 +410,10 @@
   
   .vf-options-container {
     width: 100%;
+  }
+
+  .vf-step-animation-container {
+    min-height: 200px; /* Even smaller for phones */
   }
 
   .vf-button-row {
