@@ -372,10 +372,6 @@
   .vf-step-wrapper {
     padding: 0;
   }
-
-  .vf-step-animation-container {
-    min-height: 250px;
-  }
 }
 
 @media screen and (max-width: 479px) {
@@ -410,10 +406,6 @@
   
   .vf-options-container {
     width: 100%;
-  }
-
-  .vf-step-animation-container {
-    min-height: 250px; /* Even smaller for phones */
   }
 
   .vf-button-row {
