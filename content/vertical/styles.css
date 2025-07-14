@@ -120,6 +120,19 @@
   box-shadow: 0 4px 12px -3px rgba(0, 0, 0, 0.12);
 }
 
+@media (hover: hover) {
+  .vf-step-content:not(.vf-enter-active) .vf-option-button,
+  .vf-step-content:not(.vf-enter-active) .vf-checkbox-option {
+    pointer-events: none;
+  }
+  
+  .vf-step-content.vf-enter-active .vf-option-button,
+  .vf-step-content.vf-enter-active .vf-checkbox-option {
+    pointer-events: auto;
+    transition: pointer-events 0s 0.4s; /* Delay enabling */
+  }
+}
+
 .vf-option-button.vf-selected {
   background-color: var(--royal-blue);
   color: var(--white);
@@ -413,7 +426,7 @@
   }
 
   .vf-step-animation-container {
-    min-height: 250px; /* Even smaller for phones */
+    min-height: 200px; /* Even smaller for phones */
   }
 
   .vf-button-row {
