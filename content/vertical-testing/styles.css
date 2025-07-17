@@ -133,17 +133,11 @@
   }
 }
 
-/* Remove focus styles on mobile */
-@media (hover: none) and (pointer: coarse) {
-  .vf-step-content:not(.vf-enter-active) .vf-option-button,
-  .vf-step-content:not(.vf-enter-active) .vf-checkbox-option {
-    pointer-events: none;
-  }
-  
-  .vf-step-content.vf-enter-active .vf-option-button,
-  .vf-step-content.vf-enter-active .vf-checkbox-option {
-    pointer-events: auto;
-    transition: pointer-events 0s 0.4s;
+/* Mobile highlight */
+@media (hover: none) {
+  .vf-option-button.vf-highlighted {
+    background-color: var(--royal-blue);
+    color: var(--white);
   }
 }
 
