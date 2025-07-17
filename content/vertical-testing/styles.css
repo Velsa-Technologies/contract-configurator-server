@@ -135,11 +135,18 @@
 
 /* Remove focus styles on mobile */
 @media (hover: none) and (pointer: coarse) {
+  /* Force remove all hover/focus states */
   .vf-option-button:focus,
-  .vf-checkbox-option:focus {
-    outline: none;
-    background-color: var(--white);
-    color: var(--dark-slate-grey);
+  .vf-option-button:hover,
+  .vf-option-button:active:not(.vf-selected),
+  .vf-checkbox-option:focus,
+  .vf-checkbox-option:hover,
+  .vf-checkbox-option:active:not(.vf-selected) {
+    outline: none !important;
+    background-color: var(--white) !important;
+    color: var(--dark-slate-grey) !important;
+    transform: none !important;
+    box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.08) !important;
   }
   
   /* Only show blue for actually selected items */
