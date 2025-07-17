@@ -129,36 +129,21 @@
   .vf-step-content.vf-enter-active .vf-option-button,
   .vf-step-content.vf-enter-active .vf-checkbox-option {
     pointer-events: auto;
-    transition: pointer-events 0s 0.4s; /* Delay enabling */
+    transition: pointer-events 0s 0.4s;
   }
 }
 
 /* Remove focus styles on mobile */
 @media (hover: none) and (pointer: coarse) {
-  /* Remove hover and focus, but NOT active */
-  .vf-option-button:focus:not(.vf-selected),
-  .vf-option-button:hover:not(.vf-selected),
-  .vf-checkbox-option:focus:not(.vf-selected),
-  .vf-checkbox-option:hover:not(.vf-selected) {
-    outline: none !important;
-    background-color: var(--white) !important;
-    color: var(--dark-slate-grey) !important;
-    transform: none !important;
-    box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.08) !important;
+  .vf-step-content:not(.vf-enter-active) .vf-option-button,
+  .vf-step-content:not(.vf-enter-active) .vf-checkbox-option {
+    pointer-events: none;
   }
   
-  /* Keep the active state blue for visual feedback */
-  .vf-option-button:active,
-  .vf-checkbox-option:active {
-    background-color: var(--royal-blue) !important;
-    color: var(--white) !important;
-  }
-  
-  /* Selected items stay blue */
-  .vf-option-button.vf-selected,
-  .vf-checkbox-option.vf-selected {
-    background-color: var(--royal-blue) !important;
-    color: var(--white) !important;
+  .vf-step-content.vf-enter-active .vf-option-button,
+  .vf-step-content.vf-enter-active .vf-checkbox-option {
+    pointer-events: auto;
+    transition: pointer-events 0s 0.4s;
   }
 }
 
