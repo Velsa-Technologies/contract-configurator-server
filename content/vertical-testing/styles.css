@@ -1,0 +1,449 @@
+/* CSS Variables */
+:root {
+  --royal-blue: #6968f7;
+  --white-smoke: #f1f3f6;
+  --white: #ffffff;
+  --white-produkt: #ffffff;
+  --dark-slate-grey: #4a5568;
+  --slate-grey: #718096;
+  --coral: #ff6b6b;
+  --black: #000000;
+  --gainsboro: #e1e4eb;
+}
+
+/* Scoped reset for your app only */
+.vf-funnel-container {
+  /* Font and color settings */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--dark-slate-grey);
+  font-size: 16px;
+  line-height: 1.5;
+  
+  /* Existing styles */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Box-sizing for all elements inside your app */
+.vf-funnel-container *,
+.vf-funnel-container *::before,
+.vf-funnel-container *::after {
+  box-sizing: border-box;
+}
+
+.vf-funnel-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.vf-funnel-header h1 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.vf-funnel-header p {
+  color: var(--slate-grey);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Step wrapper - make it invisible as a container */
+.vf-step-wrapper {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  min-height: auto;
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--dark-slate-grey);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 2rem;
+}
+
+/* Step content */
+.vf-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.vf-step-content h2 {
+  margin: 0 0 1rem 0;
+  color: var(--black);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 155%;
+  letter-spacing: 0;
+}
+
+/* Options container */
+.vf-options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-top: 0.5rem;
+}
+
+/* Option button */
+.vf-option-button {
+  background-color: var(--white);
+  border: none;
+  border-radius: 8px;
+  /* width: 100%;
+  min-width: 32rem; */
+  width: calc(100% - 15px);
+  min-width: auto;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--dark-slate-grey);
+  transition: all 0.2s;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.08);
+  position: relative;
+  display: block;
+}
+
+.vf-option-button:hover {
+  background-color: var(--royal-blue);
+  color: var(--white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -3px rgba(0, 0, 0, 0.12);
+}
+
+@media (hover: hover) {
+  .vf-step-content:not(.vf-enter-active) .vf-option-button,
+  .vf-step-content:not(.vf-enter-active) .vf-checkbox-option {
+    pointer-events: none;
+  }
+  
+  .vf-step-content.vf-enter-active .vf-option-button,
+  .vf-step-content.vf-enter-active .vf-checkbox-option {
+    pointer-events: auto;
+    transition: pointer-events 0s 0.4s; /* Delay enabling */
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  /* Remove the default tap highlight */
+  .vf-checkbox-option,
+  .vf-option-button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.vf-option-button.vf-selected {
+  background-color: var(--royal-blue);
+  color: var(--white);
+}
+
+.vf-option-button:last-child {
+  margin-bottom: 0;
+}
+
+/* Checkbox option for language selection */
+.vf-checkbox-option {
+  background-color: var(--white);
+  border-radius: 8px;
+  /* width: 100%;
+  min-width: 32rem; */
+  width: calc(100% - 15px); /* Subtract the button row padding */
+  min-width: auto; /* Explicitly set to auto */
+  box-sizing: border-box; /* Ensure padding is included */
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.08);
+}
+
+.vf-checkbox-option:hover {
+  background-color: var(--royal-blue);
+  color: var(--white);
+}
+
+.vf-checkbox-option.vf-selected {
+  background-color: var(--royal-blue);
+  color: var(--white);
+}
+
+.vf-checkbox-option:last-child {
+  margin-bottom: 0;
+}
+
+.vf-custom-checkbox {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.vf-checkbox-label {
+  font-weight: 400;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Segoe UI Emoji', Roboto, sans-serif;
+}
+
+/* Continue button for language step */
+.vf-continue-button {
+  background-image: linear-gradient(135deg, #69f, #f36);
+  color: var(--white);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 20px 25px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  cursor: pointer;
+  transition: transform 0.3s;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 32rem;
+}
+
+.vf-continue-button:hover:not(:disabled) {
+  transform: scale(1.02);
+}
+
+.vf-continue-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Submit button */
+.vf-submit-button {
+  background-image: linear-gradient(135deg, #69f, #f36);
+  color: var(--white);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 20px 25px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  cursor: pointer;
+  transition: transform 0.3s;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.vf-submit-button:hover {
+  transform: scale(1.02);
+}
+
+/* Back button arrow - used everywhere now */
+.vf-back-button-arrow {
+  padding: 20px;
+  border: none;
+  background: white;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--dark-slate-grey);
+  transition: all 0.2s;
+  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+.vf-back-button-arrow:hover {
+  background: var(--white-smoke);
+  transform: translateX(-2px);
+}
+
+/* Button row container */
+.vf-button-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  align-items: center;
+  padding-right: 15px;
+}
+
+/* Adjust submit button to not take full width when in button row */
+.vf-button-row .vf-submit-button {
+  width: auto;
+  flex: 1;
+  margin-top: 0;
+}
+
+/* Summary section */
+.vf-summary {
+  background: var(--white-smoke);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.vf-summary p {
+  margin: 0.5rem 0;
+  color: var(--dark-slate-grey);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.vf-summary p:first-child {
+  margin-top: 0;
+}
+
+.vf-summary p:last-child {
+  margin-bottom: 0;
+}
+
+/* Auto-selecting message */
+.vf-step-content p[style*="italic"] {
+  color: var(--slate-grey);
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+/* Animation container */
+.vf-step-animation-container {
+  position: relative;
+  overflow: hidden;
+  overflow-x: visible; /* Allow horizontal overflow */
+  clip-path: inset(0 0 0 -50px); /* Only clip the right side, allow 50px overflow on left */
+  min-height: 250px;
+  /* height: auto; */
+  /* transition: min-height 0.3s ease-out; */
+}
+
+/* Base animation state - This is separate! */
+.vf-step-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Animation states */
+.vf-step-content.vf-enter-from-right {
+  transform: translateX(100%);
+  opacity: 1;
+}
+
+.vf-step-content.vf-enter-from-left {
+  transform: translateX(-100%);
+  opacity: 1;
+}
+
+.vf-step-content.vf-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.vf-step-content.vf-exit-to-left {
+  transform: translateX(-100%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.vf-step-content.vf-exit-to-right {
+  transform: translateX(100%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Loading state */
+.vf-loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  color: var(--slate-grey);
+}
+
+/* Error state */
+.vf-error-container {
+  text-align: center;
+  padding: 40px 20px;
+  color: #e53e3e;
+}
+
+/* Responsive design */
+@media screen and (max-width: 991px) {
+  .vf-funnel-container {
+    padding: 20px;
+  }
+  
+  .vf-step-wrapper {
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .vf-funnel-header h1 {
+    font-size: 2rem;
+  }
+  
+  .vf-step-wrapper {
+    padding: 0;
+  }
+
+  .vf-step-animation-container {
+    min-height: 250px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .vf-funnel-container {
+    padding: 15px;
+  }
+  
+  .vf-funnel-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+  }
+  
+  .vf-funnel-header p {
+    font-size: 16px;
+  }
+  
+  .vf-step-wrapper {
+    padding: 0;
+    min-height: auto;
+  }
+  
+  .vf-step-content h2 {
+    font-size: 0.97rem;
+  }
+  
+  .vf-option-button,
+  .vf-checkbox-option,
+  .vf-continue-button {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .vf-options-container {
+    width: 100%;
+  }
+
+  .vf-step-animation-container {
+    min-height: 200px; /* Even smaller for phones */
+  }
+
+  .vf-button-row {
+    padding-right: 0;
+  }
+}
+
+/* Make the React mount fill its parent and center it */
+#root {
+  display: block;
+  width: 100%;
+}
