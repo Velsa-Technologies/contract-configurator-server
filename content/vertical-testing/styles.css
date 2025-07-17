@@ -133,11 +133,20 @@
   }
 }
 
+/* Remove focus styles on mobile */
 @media (hover: none) and (pointer: coarse) {
-  /* Remove the default tap highlight */
-  .vf-checkbox-option,
-  .vf-option-button {
-    -webkit-tap-highlight-color: transparent;
+  .vf-option-button:focus,
+  .vf-checkbox-option:focus {
+    outline: none;
+    background-color: var(--white);
+    color: var(--dark-slate-grey);
+  }
+  
+  /* Only show blue for actually selected items */
+  .vf-option-button.vf-selected,
+  .vf-checkbox-option.vf-selected {
+    background-color: var(--royal-blue) !important;
+    color: var(--white) !important;
   }
 }
 
