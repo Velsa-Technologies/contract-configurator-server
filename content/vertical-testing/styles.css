@@ -447,3 +447,155 @@
   display: block;
   width: 100%;
 }
+
+.slide-scene-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Direction animations */
+.slide.static {
+    transform: translateX(0);
+}
+
+.slide.fromright {
+    transform: translateX(100%);
+    animation: slideFromRight 0.5s ease-in-out forwards;
+}
+
+.slide.fromleft {
+    transform: translateX(-100%);
+    animation: slideFromLeft 0.5s ease-in-out forwards;
+}
+
+.slide.toleft {
+    animation: slideToLeft 0.5s ease-in-out forwards;
+}
+
+.slide.toright {
+    animation: slideToRight 0.5s ease-in-out forwards;
+}
+
+/* Opacity animations */
+.slide.show {
+    opacity: 1;
+}
+
+.slide.fadein {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.slide.fadeout {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+/* Keyframe animations */
+@keyframes slideFromRight {
+    to { transform: translateX(0); }
+}
+
+@keyframes slideFromLeft {
+    to { transform: translateX(0); }
+}
+
+@keyframes slideToLeft {
+    to { transform: translateX(-100%); }
+}
+
+@keyframes slideToRight {
+    to { transform: translateX(100%); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; }
+}
+
+/* Slide content styles */
+.slide-label {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.choice-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.choice-button:hover {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+.choice-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Highlight state for mobile */
+@media (hover: none) {
+    .choice-button.highlighted {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+}
+
+/* Highlight state for desktop (optional) */
+@media (hover: hover) {
+    .choice-button.highlighted {
+        background: #e3f2fd;
+        border-color: #007bff;
+    }
+}
+
+.back-button {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: transparent;
+    border: 1px solid #666;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-button:hover {
+    background: #f0f0f0;
+}
