@@ -1,0 +1,474 @@
+/* Dedicated Toolbar CSS File - toolbar.css */
+/* Import this separately: import './toolbar.css'; */
+
+/* Modern Toolbar Styles - Only new classes, no conflicts with existing styles */
+.toolbar-modern {
+  height: 50%;
+  background-color: transparent;
+  border-radius: 12px;
+  max-width: 35%;
+  margin-left: 1%;
+  margin-top: 95px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 8px;
+}
+
+.toolbar-modern label {
+  cursor: pointer;
+}
+
+/* Modern Option Entry */
+.option-entry-modern {
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #2a2929 0%, #1e1e1e 100%);
+  padding: 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.option-entry-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(11, 83, 148, 0.3);
+}
+
+/* Option Header */
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(135deg, #333333 0%, #2a2a2a 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.option-title {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* Button Container */
+.option-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Icon-only buttons */
+.reset-button-icon,
+.toggle-button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+.reset-button-icon {
+  background: linear-gradient(135deg, #0b5394 0%, #074a84 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(11, 83, 148, 0.3);
+}
+
+.reset-button-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.reset-button-icon:hover::before {
+  left: 100%;
+}
+
+.reset-button-icon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(11, 83, 148, 0.4);
+  background: linear-gradient(135deg, #1e88e5 0%, #0b5394 100%);
+}
+
+.toggle-button-icon {
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+}
+
+.toggle-button-icon.minimized {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+}
+
+.toggle-button-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.toggle-button-icon:hover::before {
+  left: 100%;
+}
+
+.toggle-button-icon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+  background: linear-gradient(135deg, #868e96 0%, #6c757d 100%);
+}
+
+.toggle-button-icon.minimized:hover {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+}
+
+.toggle-button-icon:active,
+.reset-button-icon:active {
+  transform: translateY(0);
+}
+
+/* Confirmation Dialog Styles */
+.confirmation-dialog-overlay {
+  position: absolute; /* Changed from fixed to absolute */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.confirmation-dialog {
+  background: linear-gradient(135deg, #2a2929 0%, #1e1e1e 100%);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 400px;
+  width: 90%;
+  animation: dialogSlideIn 0.3s ease-out;
+}
+
+.dialog-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.dialog-content p {
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.dialog-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 100px;
+}
+
+.continue-btn {
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+}
+
+.continue-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+  background: linear-gradient(135deg, #868e96 0%, #6c757d 100%);
+}
+
+.cancel-btn {
+  background: linear-gradient(135deg, #0a66c2 0%, #074a84 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(10, 102, 194, 0.3);
+}
+
+.cancel-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(10, 102, 194, 0.4);
+  background: linear-gradient(135deg, #1e88e5 0%, #0a66c2 100%);
+}
+
+.dialog-button:active {
+  transform: translateY(0);
+}
+
+@keyframes dialogSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Collapsible Content */
+.option-content {
+  padding: 0 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.option-content.expanded {
+  max-height: 1000px;
+  padding-bottom: 1.5rem;
+  opacity: 1;
+}
+
+.option-content.minimized {
+  max-height: 0;
+  padding-bottom: 0;
+  opacity: 0;
+}
+
+/* Modern Option List */
+.option-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.option-item {
+  margin: 0;
+  padding: 0;
+}
+
+/* Modern Radio Button */
+.radio-modern {
+  margin: 0;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.radio-modern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(11, 83, 148, 0.1),
+    transparent
+  );
+  transition: left 0.6s;
+  z-index: 0;
+}
+
+.radio-modern:hover::before {
+  left: 100%;
+}
+
+.radio-modern:hover {
+  border-color: rgba(11, 83, 148, 0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(11, 83, 148, 0.1) 0%,
+    rgba(11, 83, 148, 0.05) 100%
+  );
+  transform: translateX(2px);
+}
+
+.radio-modern.selected {
+  border-color: #0b5394;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 83, 148, 0.15) 0%,
+    rgba(11, 83, 148, 0.08) 100%
+  );
+  box-shadow: 0 0 20px rgba(11, 83, 148, 0.2);
+}
+
+.radio-modern.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+}
+
+.radio-modern.disabled:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+}
+
+/* Radio Label */
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.radio-input {
+  display: none;
+}
+
+/* Custom Radio Button */
+.radio-custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+}
+
+.radio-custom::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0b5394;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.radio-input:checked + .radio-custom {
+  border-color: #0b5394;
+  box-shadow: 0 0 10px rgba(11, 83, 148, 0.3);
+}
+
+.radio-input:checked + .radio-custom::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.radio-text {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+}
+
+/* Error Message */
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 6px;
+  border-left: 3px solid #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .toolbar-modern {
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .option-header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .option-buttons {
+    justify-content: center;
+  }
+
+  .unlock-button,
+  .reset-button-modern {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.option-content.expanded {
+  animation: slideIn 0.3s ease-out;
+}
