@@ -121,15 +121,21 @@
 }
 
 @media (hover: hover) {
-  .vf-step-content:not(.vf-enter-active) .vf-option-button,
-  .vf-step-content:not(.vf-enter-active) .vf-checkbox-option {
+  .vf-step-content:not(.vf-enter-active) .vf-option-button {
     pointer-events: none;
   }
-  
-  .vf-step-content.vf-enter-active .vf-option-button,
-  .vf-step-content.vf-enter-active .vf-checkbox-option {
+
+  .vf-step-content.vf-enter-active .vf-option-button {
     pointer-events: auto;
-    transition: pointer-events 0s 0.4s; /* Delay enabling */
+    transition: pointer-events 0s 0.4s;
+  }
+}
+
+/* Mobile highlight */
+@media (hover: none) {
+  .vf-option-button.vf-highlighted {
+    background-color: var(--royal-blue);
+    color: var(--white);
   }
 }
 
@@ -140,96 +146,6 @@
 
 .vf-option-button:last-child {
   margin-bottom: 0;
-}
-
-/* Checkbox option for language selection */
-.vf-checkbox-option {
-  background-color: var(--white);
-  border-radius: 8px;
-  /* width: 100%;
-  min-width: 32rem; */
-  width: calc(100% - 15px); /* Subtract the button row padding */
-  min-width: auto; /* Explicitly set to auto */
-  box-sizing: border-box; /* Ensure padding is included */
-  margin-bottom: 0.5rem;
-  padding: 0.75rem 1rem;
-  font-size: 16px;
-  transition: all 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.08);
-}
-
-.vf-checkbox-option:hover {
-  background-color: var(--royal-blue);
-  color: var(--white);
-}
-
-.vf-checkbox-option.vf-selected {
-  background-color: var(--royal-blue);
-  color: var(--white);
-}
-
-.vf-checkbox-option:last-child {
-  margin-bottom: 0;
-}
-
-.vf-custom-checkbox {
-  margin-right: 12px;
-  cursor: pointer;
-}
-
-.vf-checkbox-label {
-  font-weight: 400;
-  cursor: pointer;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Segoe UI Emoji', Roboto, sans-serif;
-}
-
-/* Continue button for language step */
-.vf-continue-button {
-  background-image: linear-gradient(135deg, #69f, #f36);
-  color: var(--white);
-  border: none;
-  border-radius: 0.75rem;
-  padding: 20px 25px;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 120%;
-  cursor: pointer;
-  transition: transform 0.3s;
-  margin-top: 1.5rem;
-  width: 100%;
-  max-width: 32rem;
-}
-
-.vf-continue-button:hover:not(:disabled) {
-  transform: scale(1.02);
-}
-
-.vf-continue-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Submit button */
-.vf-submit-button {
-  background-image: linear-gradient(135deg, #69f, #f36);
-  color: var(--white);
-  border: none;
-  border-radius: 0.75rem;
-  padding: 20px 25px;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 120%;
-  cursor: pointer;
-  transition: transform 0.3s;
-  width: 100%;
-  margin-top: 2rem;
-}
-
-.vf-submit-button:hover {
-  transform: scale(1.02);
 }
 
 /* Back button arrow - used everywhere now */
@@ -261,13 +177,6 @@
   margin-top: 2rem;
   align-items: center;
   padding-right: 15px;
-}
-
-/* Adjust submit button to not take full width when in button row */
-.vf-button-row .vf-submit-button {
-  width: auto;
-  flex: 1;
-  margin-top: 0;
 }
 
 /* Summary section */
@@ -414,9 +323,7 @@
     font-size: 0.97rem;
   }
   
-  .vf-option-button,
-  .vf-checkbox-option,
-  .vf-continue-button {
+  .vf-option-button {
     min-width: auto;
     width: 100%;
   }
